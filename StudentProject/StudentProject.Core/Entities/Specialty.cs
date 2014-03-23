@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    class Specialty :Entity<int>
+    public class Specialty :Entity<int>
     {
         public string Name { get; set; }
         public int TermNumber { get; set; }
+        public virtual HashSet<Group> Groups { get; set; }
+        public virtual int FormEducationId { get; set; }
+        public virtual HashSet<Curriculum> Curricula { get; set; }
+
     }
 }

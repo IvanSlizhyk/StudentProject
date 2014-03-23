@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentProject.Core.Entities
+namespace StudentProject.DALInterfaces
 {
-    public class Discipline : Entity<short>
+    public interface IRepository
     {
-        public string Name { get; set; }
     }
 }

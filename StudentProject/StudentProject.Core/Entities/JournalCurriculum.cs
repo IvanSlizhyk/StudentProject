@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class Discipline : Entity<short>
+    public class JournalCurriculum: Entity<int>
     {
-        public string Name { get; set; }
+        public int DisciplineId { get; set; }
+        public int FormReportId { get; set; }
+        public int Time { get; set; }
+
     }
 }

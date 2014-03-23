@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    class Group : Entity<int>
+    public class Group : Entity<int>
     {
-        public int FormationYaer { get; set; }
+        public int GroupNumber { get; set; }
+        public int FormationYear { get; set; }
+        public virtual HashSet<Student> Students { get; set; }
+        public virtual int SpecialtyId { get; set; }
+
     }
 }

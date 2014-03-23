@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class Discipline : Entity<short>
+    public class AppraisalFormReport: Entity<byte>
     {
-        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }

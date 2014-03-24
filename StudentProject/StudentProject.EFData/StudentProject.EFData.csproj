@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -39,11 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="Mapping\AppraisalFormReportMap.cs" />
+    <Compile Include="Mapping\CurriculumMap.cs" />
+    <Compile Include="Mapping\DisciplineMap.cs" />
+    <Compile Include="Mapping\FormEducationMap.cs" />
+    <Compile Include="Mapping\FormReportMap.cs" />
+    <Compile Include="Mapping\GroupMap.cs" />
+    <Compile Include="Mapping\JournalCurriculumMap.cs" />
+    <Compile Include="Mapping\JournalProgressMap.cs" />
+    <Compile Include="Mapping\ProgressMap.cs" />
+    <Compile Include="Mapping\SpecialityMap.cs" />
+    <Compile Include="Mapping\StudentMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryGeneric.cs" />
+    <Compile Include="StudentContext.cs" />
+    <Compile Include="StudentDBInitializer.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudentProject.Core\StudentProject.Core.csproj">
-      <Project>{98ae50f9-e6bd-451f-9cca-d534da0ef2c3}</Project>
+      <Project>{98AE50F9-E6BD-451F-9CCA-D534DA0EF2C3}</Project>
       <Name>StudentProject.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\StudentProject.DALInterfaces\StudentProject.DALInterfaces.csproj">
@@ -51,6 +74,11 @@
       <Name>StudentProject.DALInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

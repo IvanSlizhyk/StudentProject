@@ -11,7 +11,7 @@ namespace StudentProject.Core.Entities
         public int GroupNumber { get; set; }
         public int FormationYear { get; set; }
         public virtual HashSet<Student> Students { get; set; }
-        public virtual int SpecialtyId { get; set; }
-
+        public int SpecialtyId { get; set; }
+        public virtual Speciality Speciality { get; set; }
     }
 }

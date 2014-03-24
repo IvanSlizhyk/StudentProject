@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class JournalCurriculum: Entity<int>
+    public class JournalCurriculum : Entity<int>
     {
-        public int DisciplineId { get; set; }
-        public int FormReportId { get; set; }
+        public virtual Curriculum Curriculum { get; set; }
+        public int CurriculumId { get; set; }
+        public virtual Discipline Discipline { get; set; }
+        public virtual FormReport FormReport { get; set; }
         public int Time { get; set; }
 
     }

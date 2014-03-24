@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class Curriculum: Entity<int>
+    public class Curriculum : Entity<int>
     {
-        public virtual int SpecialityId { get; set; }
+        public virtual Speciality Speciality { get; set; }
+        public int SpecialityId { get; set; }
         public virtual HashSet<JournalCurriculum> JournalCurricula { get; set; }
         public int Term { get; set; }
     }

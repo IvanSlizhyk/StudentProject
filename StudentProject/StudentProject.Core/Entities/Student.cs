@@ -12,7 +12,7 @@ namespace StudentProject.Core.Entities
         public string Surname { get; set; }
         public string Patronymic { get; set; }
         public string Email { get; set; }
-        public virtual HashSet<Group> Groups{ get; set; }
+        public virtual HashSet<Group> Groups { get; set; }
         public virtual HashSet<Progress> Progresses { get; set; }
     }
 }

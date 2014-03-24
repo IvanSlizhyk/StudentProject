@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class FormReport : Entity<int>
+    public static class TestClass
     {
-        public string Name { get; set; }
+        public static string Do(this Group group, int i)
+        {
+            return group.FormationYear + " " + i;
+        }
     }
 }

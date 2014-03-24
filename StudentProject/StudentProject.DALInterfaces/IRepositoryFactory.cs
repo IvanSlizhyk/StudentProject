@@ -11,14 +11,14 @@ namespace StudentProject.DALInterfaces
     {
         IRepository<Student, int> GetStudentRepository();
         IRepository<Group, int> GetGroupRepository();
-        IRepository<Specialty, int> GetSpecialityRepository();
+        IRepository<Speciality, int> GetSpecialityRepository();
         IRepository<Curriculum, int> GetCurriculumRepository();
         IRepository<JournalCurriculum, int> GetJournalCurriculumRepository();
         IRepository<Progress, int> GetProgressRepository();
         IRepository<JournalProgress, int> GetJournalProgressRepository();
-        IRepository<FormEducation, byte> GetFormEducationRepository();
-        IRepository<FormReport, byte> GetFormReportRepository();
-        IRepository<Discipline, short> GetDisciplineRepository();
-        IRepository<AppraisalFormReport, byte> GetAppraisalFormReportRepository();
+        IRepository<FormEducation, int> GetFormEducationRepository();
+        IRepository<FormReport, int> GetFormReportRepository();
+        IRepository<Discipline, int> GetDisciplineRepository();
+        IRepository<AppraisalFormReport, int> GetAppraisalFormReportRepository();
     }
 }

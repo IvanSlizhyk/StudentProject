@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentProject.Core.Entities
 {
-    public class Discipline : Entity<short>
+    public class Discipline : Entity<int>
     {
         public string Name { get; set; }
     }

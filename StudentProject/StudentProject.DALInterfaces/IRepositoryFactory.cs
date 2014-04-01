@@ -9,16 +9,16 @@ namespace StudentProject.DALInterfaces
 {
     public interface IRepositoryFactory
     {
-        IRepository<Student, int> GetStudentRepository();
-        IRepository<Group, int> GetGroupRepository();
-        IRepository<Speciality, int> GetSpecialityRepository();
-        IRepository<Curriculum, int> GetCurriculumRepository();
-        IRepository<JournalCurriculum, int> GetJournalCurriculumRepository();
-        IRepository<Progress, int> GetProgressRepository();
-        IRepository<JournalProgress, int> GetJournalProgressRepository();
-        IRepository<FormEducation, int> GetFormEducationRepository();
-        IRepository<FormReport, int> GetFormReportRepository();
-        IRepository<Discipline, int> GetDisciplineRepository();
-        IRepository<AppraisalFormReport, int> GetAppraisalFormReportRepository();
+        IRepositoryGeneric<Student, int> GetStudentRepository();
+        IRepositoryGeneric<Group, int> GetGroupRepository();
+        IRepositoryGeneric<Speciality, int> GetSpecialityRepository();
+        IRepositoryGeneric<Curriculum, int> GetCurriculumRepository();
+        IRepositoryGeneric<JournalCurriculum, int> GetJournalCurriculumRepository();
+        IRepositoryGeneric<Progress, int> GetProgressRepository();
+        IRepositoryGeneric<JournalProgress, int> GetJournalProgressRepository();
+        IRepositoryGeneric<FormEducation, int> GetFormEducationRepository();
+        IRepositoryGeneric<FormReport, int> GetFormReportRepository();
+        IRepositoryGeneric<Discipline, int> GetDisciplineRepository();
+        IRepositoryGeneric<AppraisalFormReport, int> GetAppraisalFormReportRepository();
     }
 }

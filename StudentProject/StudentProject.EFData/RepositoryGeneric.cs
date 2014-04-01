@@ -6,11 +6,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using StudentProject.Core;
+using StudentProject.Core.Entities;
 using StudentProject.DALInterfaces;
 
 namespace StudentProject.EFData
 {
-    public class RepositoryGeneric<TEntity, TKey> : BaseRepository, IRepository<TEntity, TKey> where TEntity : Entity
+    public class RepositoryGeneric<TEntity, TKey> : BaseRepository, IRepositoryGeneric<TEntity, TKey> where TEntity : Entity
     {
         private readonly DbSet<TEntity> _set;
 

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.Test", "Stud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.Core", "StudentProject.Core\StudentProject.Core.csproj", "{98AE50F9-E6BD-451F-9CCA-D534DA0EF2C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.BLInterfaces", "StudentProject.BLInterfaces\StudentProject.BLInterfaces.csproj", "{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{98AE50F9-E6BD-451F-9CCA-D534DA0EF2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98AE50F9-E6BD-451F-9CCA-D534DA0EF2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98AE50F9-E6BD-451F-9CCA-D534DA0EF2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

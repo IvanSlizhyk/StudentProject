@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,31 +12,54 @@ namespace StudentProject.EFData
     public class UnitOfWork : IUnitOfWork, IRepositoryFactory
     {
         private readonly StudentContext _context;
-        private IRepository<Student, int> _studetRepository;
-        private IRepository<Group, int> _groupRepository;
-        private IRepository<Speciality, int> _specialityRepository;
-        private IRepository<Progress, int> _progressRepository;
-        private IRepository<JournalProgress, int> _journalProgressRepository;
-        private IRepository<Curriculum, int> _curriculumRepository;
-        private IRepository<JournalCurriculum, int> _journalCurriculumRepository;
-        private IRepository<Discipline, int> _disciplineRepository;
-        private IRepository<FormEducation, int> _formEducationRepository;
-        private IRepository<FormReport, int> _formReportRepository;
-        private IRepository<AppraisalFormReport, int> _appraisalFormReportRepository;
+        private readonly DbContextTransaction _transaction;
+        private bool _isTransactionActive;
+        private bool _disposed;
+        private IRepositoryGeneric<Student, int> _studetRepository;
+        private IRepositoryGeneric<Group, int> _groupRepository;
+        private IRepositoryGeneric<Speciality, int> _specialityRepository;
+        private IRepositoryGeneric<Progress, int> _progressRepository;
+        private IRepositoryGeneric<JournalProgress, int> _journalProgressRepository;
+        private IRepositoryGeneric<Curriculum, int> _curriculumRepository;
+        private IRepositoryGeneric<JournalCurriculum, int> _journalCurriculumRepository;
+        private IRepositoryGeneric<Discipline, int> _disciplineRepository;
+        private IRepositoryGeneric<FormEducation, int> _formEducationRepository;
+        private IRepositoryGeneric<FormReport, int> _formReportRepository;
+        private IRepositoryGeneric<AppraisalFormReport, int> _appraisalFormReportRepository;
 
         public UnitOfWork(StudentContext context)
         {
             _context = context;
+            _transaction = _context.Database.BeginTransaction();
+            _isTransactionActive = true;
         }
 
         public void Commit()
         {
-            
+            try
+            {
+                if (_isTransactionActive && !_disposed)
+                {
+                    _context.SaveChanges();
+                    _transaction.Commit();
+                    _isTransactionActive = false;
+                }
+            }
+            catch (Exception e)
+            {
+                _transaction.Rollback();
+                _isTransactionActive = false;
+                throw;
+            }
         }
 
         public void Rollback()
         {
-            
+            if (_isTransactionActive && !_disposed)
+            {
+                _transaction.Rollback();
+                _isTransactionActive = false;
+            }
         }
 
         public void PreSave()
@@ -43,60 +67,87 @@ namespace StudentProject.EFData
             _context.SaveChanges();
         }
 
-        public IRepository<Student, int> GetStudentRepository()
+        public void Dispose()
+        {
+            if (_isTransactionActive)
+            {
+                try
+                {
+                    _context.SaveChanges();
+                    _transaction.Commit();
+                    _isTransactionActive = false;
+                }
+                catch (Exception e)
+                {
+                    _transaction.Rollback();
+                    _isTransactionActive = false;
+
+                    _context.Dispose();
+                    _disposed = true;
+                    throw;
+                }
+            }
+            if (_disposed)
+            {
+                _context.Dispose();
+                _disposed = true;
+            }
+        }
+
+        public IRepositoryGeneric<Student, int> GetStudentRepository()
         {
             return _studetRepository ?? (_studetRepository = new RepositoryGeneric<Student, int>(_context));
         }
 
-        public IRepository<Group, int> GetGroupRepository()
+        public IRepositoryGeneric<Group, int> GetGroupRepository()
         {
             return _groupRepository ?? (_groupRepository = new RepositoryGeneric<Group, int>(_context));
         }
 
-        public IRepository<Speciality, int> GetSpecialityRepository()
+        public IRepositoryGeneric<Speciality, int> GetSpecialityRepository()
         {
             return _specialityRepository ?? (_specialityRepository = new RepositoryGeneric<Speciality, int>(_context));
         }
 
-        public IRepository<Curriculum, int> GetCurriculumRepository()
+        public IRepositoryGeneric<Curriculum, int> GetCurriculumRepository()
         {
             return _curriculumRepository ?? (_curriculumRepository = new RepositoryGeneric<Curriculum, int>(_context));
         }
 
-        public IRepository<JournalCurriculum, int> GetJournalCurriculumRepository()
+        public IRepositoryGeneric<JournalCurriculum, int> GetJournalCurriculumRepository()
         {
             return _journalCurriculumRepository ??
                    (_journalCurriculumRepository = new RepositoryGeneric<JournalCurriculum, int>(_context));
         }
 
-        public IRepository<Progress, int> GetProgressRepository()
+        public IRepositoryGeneric<Progress, int> GetProgressRepository()
         {
             return _progressRepository ?? (_progressRepository = new RepositoryGeneric<Progress, int>(_context));
         }
 
-        public IRepository<JournalProgress, int> GetJournalProgressRepository()
+        public IRepositoryGeneric<JournalProgress, int> GetJournalProgressRepository()
         {
             return _journalProgressRepository ??
                    (_journalProgressRepository = new RepositoryGeneric<JournalProgress, int>(_context));
         }
 
-        public IRepository<FormEducation, int> GetFormEducationRepository()
+        public IRepositoryGeneric<FormEducation, int> GetFormEducationRepository()
         {
             return _formEducationRepository ??
                    (_formEducationRepository = new RepositoryGeneric<FormEducation, int>(_context));
         }
 
-        public IRepository<FormReport, int> GetFormReportRepository()
+        public IRepositoryGeneric<FormReport, int> GetFormReportRepository()
         {
             return _formReportRepository ?? (_formReportRepository = new RepositoryGeneric<FormReport, int>(_context));
         }
 
-        public IRepository<Discipline, int> GetDisciplineRepository()
+        public IRepositoryGeneric<Discipline, int> GetDisciplineRepository()
         {
             return _disciplineRepository ?? (_disciplineRepository = new RepositoryGeneric<Discipline, int>(_context));
         }
 
-        public IRepository<AppraisalFormReport, int> GetAppraisalFormReportRepository()
+        public IRepositoryGeneric<AppraisalFormReport, int> GetAppraisalFormReportRepository()
         {
             return _appraisalFormReportRepository ??
                    (_appraisalFormReportRepository = new RepositoryGeneric<AppraisalFormReport, int>(_context));

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentProject.DALInterfaces
 {
-    public interface IRepository
+    public interface IBaseRepository
     {
     }
 }

@@ -8,7 +8,7 @@ using StudentProject.Core;
 
 namespace StudentProject.DALInterfaces
 {
-    public interface IRepository<TEntity, in TKey> : IRepository where TEntity : Entity
+    public interface IRepositoryGeneric<TEntity, in TKey> : IBaseRepository where TEntity : Entity
     {
         void Create(TEntity value);
         void Update(TEntity value);

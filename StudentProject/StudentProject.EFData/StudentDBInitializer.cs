@@ -12,7 +12,7 @@ namespace StudentProject.EFData
     {
         protected override void Seed(StudentContext context)
         {
-            var group1 = new Group { GroupNumber = 110901, FormationYear = 2011 };
+            /*var group1 = new Group { GroupNumber = 110901, FormationYear = 2011 };
             context.Groups.Add(group1);
             context.SaveChanges();
             var student1 = new Student {Name = "Иван", Surname = "Ливанов", Patronymic = "Игоревич", Email = "tr@gmail.com"};
@@ -43,7 +43,7 @@ namespace StudentProject.EFData
             speciality1.Groups.Add(group1);
             speciality1.Curricula.Add(curriculum1);
             context.Specialties.Add(speciality1);
-            context.SaveChanges();
+            context.SaveChanges();*/
 
             base.Seed(context);
         }

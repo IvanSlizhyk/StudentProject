@@ -9,8 +9,10 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface ICurriculumService : IService
     {
-        Curriculum CreateCurriculum(int term);
+        void UpdateCurruculum(Curriculum curriculum);
+        Curriculum GetCurriculumById(int curriculumId);
         Speciality GetSpecialityOfCurruculum(int currliculumId);
+        HashSet<JournalCurriculum> GetJournalCurriculaOfCurriculum(int curriculumId);
 
     }
 }

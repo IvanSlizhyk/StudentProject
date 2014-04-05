@@ -39,11 +39,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLInterfaces\IAppraisalFormReportService.cs" />
+    <Compile Include="BLLInterfaces\IDisciplineService.cs" />
+    <Compile Include="BLLInterfaces\IFormEducationService.cs" />
+    <Compile Include="BLLInterfaces\IFormReportService.cs" />
+    <Compile Include="BLLInterfaces\IJournalCurriculumService.cs" />
     <Compile Include="BLLInterfaces\ICurriculumService.cs" />
     <Compile Include="BLLInterfaces\IGroupService.cs" />
+    <Compile Include="BLLInterfaces\IJournalProgressService.cs" />
+    <Compile Include="BLLInterfaces\IProgressService.cs" />
     <Compile Include="BLLInterfaces\IService.cs" />
     <Compile Include="BLLInterfaces\ISpecialityService.cs" />
     <Compile Include="BLLInterfaces\IStudentService.cs" />
+    <Compile Include="Exceptions\AppraisalFormReportServiceException.cs" />
+    <Compile Include="Exceptions\CurriculumServiceException.cs" />
+    <Compile Include="Exceptions\DisciplineServiceException.cs" />
+    <Compile Include="Exceptions\FormEducationServiceException.cs" />
+    <Compile Include="Exceptions\FormReportServiceException.cs" />
+    <Compile Include="Exceptions\GroupServiceException.cs" />
+    <Compile Include="Exceptions\JournalCurriculumServiceException.cs" />
+    <Compile Include="Exceptions\JournalProgressServiceException.cs" />
+    <Compile Include="Exceptions\ProgressServiceException.cs" />
+    <Compile Include="Exceptions\SpecialityServiceException.cs" />
+    <Compile Include="Exceptions\StudentServiceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +81,7 @@
       <Name>StudentProject.EFData</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -43,8 +43,9 @@ namespace StudentProject.EFData
             speciality1.Groups.Add(group1);
             speciality1.Curricula.Add(curriculum1);
             context.Specialties.Add(speciality1);
+            context.Database.ExecuteSqlCommand("ALTER TABLE Group ADD CONSTRAINT EmailDataUnique UNIQUE (GroupNumber)");
             context.SaveChanges();*/
-
+            var executeSqlCommand = context.Database.ExecuteSqlCommand("ALTER TABLE Group ADD CONSTRAINT EmailDataUnique UNIQUE (GroupNumber)");
             base.Seed(context);
         }
     }

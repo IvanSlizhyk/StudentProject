@@ -15,6 +15,7 @@ namespace StudentProject.EFData.Mapping
             HasKey(e => e.Id);
             Property(e => e.Name).IsRequired().HasMaxLength(30);
             Property(e => e.TermNumber).IsRequired();
+            HasRequired(e => e.FormEducation).WithMany().HasForeignKey(e => e.FormEducationId);
             HasMany(e => e.Groups).WithRequired(e => e.Speciality).HasForeignKey(e => e.SpecialtyId);
             HasMany(e => e.Curricula).WithRequired(e => e.Speciality).HasForeignKey(e=>e.SpecialityId);
         }

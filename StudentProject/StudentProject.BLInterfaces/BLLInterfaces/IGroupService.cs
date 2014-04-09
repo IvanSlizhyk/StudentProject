@@ -9,14 +9,14 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface IGroupService : IService
     {
-        Group CreateGroup(int groupNumber, int formationYear);
+        Group CreateGroup(int groupNumber, int formationYear, Speciality speciality);
         void UpdateGroup(Group group);
         void RemoveGroup(Group group);
         Group GetGroupById(int groupId);
         Group GetGroupByNumber(int groupNumber);
-        void AddStudentToGroup(Student student);
-        void RemoveStudentToGroup(Student student);
+        void AddStudentToGroup(Student student, int groupId);
+        void RemoveStudentToGroup(Student student, int groupId);
         HashSet<Student> GetStudentsOfGroup(int groupNumber);
-        void SetSpecialityOfGroup(int specialityId);
+        void SetSpecialityOfGroup(Speciality speciality, Group group);
     }
 }

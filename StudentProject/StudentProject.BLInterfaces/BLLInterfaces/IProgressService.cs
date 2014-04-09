@@ -13,7 +13,7 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateProgress(Progress progress);
         void RemoveProgress(Progress progress);
         Progress GetProgressById(int progressId);
-        void SetStudentOfProgress(int studentId);
+        void SetStudentOfProgress(Student student, int progressId);
         HashSet<JournalProgress> GetJournalProgressesOfProgresses(int progressId);
     }
 }

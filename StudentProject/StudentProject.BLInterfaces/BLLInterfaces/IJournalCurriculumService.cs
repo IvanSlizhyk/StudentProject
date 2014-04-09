@@ -9,12 +9,11 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface IJournalCurriculumService : IService
     {
-        JournalCurriculum CreateJournalCurriculum(int time);
+        JournalCurriculum CreateJournalCurriculum(int time, Discipline discipline, FormReport formReport, Curriculum curriculum);
         void UpdaterJournalCurriculum(JournalCurriculum journalCurriculum);
         void RemoveJournalCurriculum(JournalCurriculum journalCurriculum);
         JournalCurriculum GetJournalCurriculumById(int journalCurriculumId);
-        void SetDisciplineOfJournalCurriculum(int disciplineId);
-        void SetFormReportOfJournalCurriculum(int formReportId);
-        void SetCurriculumOfJournalCurriculum(int curriculumId);
+        void SetDisciplineOfJournalCurriculum(Discipline discipline, JournalCurriculum journalCurriculum);
+        void SetFormReportOfJournalCurriculum(FormReport formReport, JournalCurriculum journalCurriculum);
     }
 }

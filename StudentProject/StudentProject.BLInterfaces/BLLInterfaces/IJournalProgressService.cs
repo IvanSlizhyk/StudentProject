@@ -13,8 +13,8 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateJournalProgress(JournalProgress journalProgress);
         void RemoveJournalProgress(JournalProgress journalProgress);
         JournalProgress GetJournalProgressById(int journalProgressId);
-        void SetDisciplineOfJournalProgress(int disciplineId);
-        void SetAppraisalFormReportOfJournalProgress(int appraisalFormReportId);
-        void SetProgressOfJournalProgress(int progressId);
+        void SetDisciplineOfJournalProgress(Discipline discipline, int journalProgressId);
+        void SetAppraisalFormReportOfJournalProgress(AppraisalFormReport appraisalFormReport, int journalProgressId);
+        void SetProgressOfJournalProgress(Progress progress, int journalProgressId);
     }
 }

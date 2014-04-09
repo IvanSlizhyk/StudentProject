@@ -9,13 +9,13 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface ISpecialityService : IService
     {
-        Speciality CreateSpeciality(string name, int termNumber);
+        Speciality CreateSpeciality(string name, int termNumber, FormEducation formEducation);
         void UpdateSpeciality(Speciality speciality);
         void RemoveSpeciality(Speciality speciality);
         Speciality GetSpecialityById(int specialityId);
-        void SetFormEducationOfSpeciality(int formEducationId);
+        void SetFormEducationOfSpeciality(FormEducation formEducation, Speciality speciality);
         HashSet<Group> GetGroupsOfSpeciality(int specialityId);
-        HashSet<Curriculum> GetCurriculaOfSpeciality(int curriculumId);
+        HashSet<Curriculum> GetCurriculaOfSpeciality(int specialityId);
 
     }
 }

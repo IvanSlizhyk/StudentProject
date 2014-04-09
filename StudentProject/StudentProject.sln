@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.Core", "Stud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.BLInterfaces", "StudentProject.BLInterfaces\StudentProject.BLInterfaces.csproj", "{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.Services", "StudentProject.Services\StudentProject.Services.csproj", "{87EEC02C-469E-41C9-9992-548E9FAAA627}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentProject.UI", "StudentProject.UI\StudentProject.UI.csproj", "{8DC8E19E-BCBA-43CD-9BAD-5E9707F57A31}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CF4ADB1-3698-4DF1-8258-3EC6914F6735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87EEC02C-469E-41C9-9992-548E9FAAA627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87EEC02C-469E-41C9-9992-548E9FAAA627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87EEC02C-469E-41C9-9992-548E9FAAA627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87EEC02C-469E-41C9-9992-548E9FAAA627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC8E19E-BCBA-43CD-9BAD-5E9707F57A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC8E19E-BCBA-43CD-9BAD-5E9707F57A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC8E19E-BCBA-43CD-9BAD-5E9707F57A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC8E19E-BCBA-43CD-9BAD-5E9707F57A31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

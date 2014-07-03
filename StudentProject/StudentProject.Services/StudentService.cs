@@ -120,5 +120,46 @@ namespace StudentProject.Services
                 throw new StudentServiceException(ex);
             }
         }
+
+        public IQueryable<Student> GetAllStudents()
+        {
+            var studentRepository = RepositoryFactory.GetStudentRepository();
+
+            try
+            {
+                var student = studentRepository.All();
+                return student;
+            }
+            catch (RepositoryException ex)
+            {
+                throw new StudentServiceException(ex);
+            }
+        }
+
+        public void AddGroupToStudent(Group group, int studentId)
+        {
+            var student = GetStudentById(studentId);
+            student.Groups.Add(group);
+            var progressRepository = RepositoryFactory.GetProgressRepository();
+
+            for (var i = 0; i < group.Speciality.TermNumber; i++)
+            {
+                var progress = new Progress() {Student = student, StudentId = studentId, Group = group, GroupId = group.Id, Term = i + 1};
+                progressRepository.Create(progress);
+            }
+        }
+
+        public void RemoveGroupToStudent(Group group, int studentId)
+        {
+            var student = GetStudentById(studentId);
+            student.Groups.Remove(group);
+            var progressRepository = RepositoryFactory.GetProgressRepository();
+
+            for (var i = 0; i < group.Speciality.TermNumber; i++)
+            {
+                var progress = student.Progresses.ToList().Find(t => t.Term == i + 1);
+                progressRepository.Remove(progress);
+            }
+        }
     }
 }

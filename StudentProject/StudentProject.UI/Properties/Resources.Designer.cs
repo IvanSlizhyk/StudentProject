@@ -93,9 +93,39 @@ namespace StudentProject.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddToGroup {
+            get {
+                object obj = ResourceManager.GetObject("AddToGroup", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Button {
             get {
                 object obj = ResourceManager.GetObject("Button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChangeCurriculum {
+            get {
+                object obj = ResourceManager.GetObject("ChangeCurriculum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Choice {
+            get {
+                object obj = ResourceManager.GetObject("Choice", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,16 @@ namespace StudentProject.UI.Properties {
         internal static string ConnectionString {
             get {
                 return ResourceManager.GetString("ConnectionString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Curriculum1 {
+            get {
+                object obj = ResourceManager.GetObject("Curriculum1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -125,6 +165,16 @@ namespace StudentProject.UI.Properties {
         internal static System.Drawing.Bitmap Student {
             get {
                 object obj = ResourceManager.GetObject("Student", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewProgress {
+            get {
+                object obj = ResourceManager.GetObject("ViewProgress", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

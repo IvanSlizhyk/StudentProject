@@ -93,5 +93,20 @@ namespace StudentProject.Services
                 throw new AppraisalFormReportServiceException(ex);
             }
         }
+
+        public IQueryable<AppraisalFormReport> GetAllAppraisalFormReport()
+        {
+            var appraisalFormReportRepository = RepositoryFactory.GetAppraisalFormReportRepository();
+
+            try
+            {
+                var appraisalFormReport = appraisalFormReportRepository.All();
+                return appraisalFormReport;
+            }
+            catch (RepositoryException ex)
+            {
+                throw new AppraisalFormReportServiceException(ex);
+            }
+        }
     }
 }

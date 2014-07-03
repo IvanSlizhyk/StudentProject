@@ -54,6 +54,7 @@
             resources.ApplyResources(this.additionalLBox, "additionalLBox");
             this.additionalLBox.FormattingEnabled = true;
             this.additionalLBox.Name = "additionalLBox";
+            this.additionalLBox.DoubleClick += new System.EventHandler(this.ReturnDecision);
             // 
             // Form4
             // 

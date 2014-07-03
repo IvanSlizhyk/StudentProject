@@ -10,7 +10,8 @@ namespace StudentProject.Core.Entities
     {
         public virtual Progress Progress { get; set; }
         public int ProgressId { get; set; }
-        public virtual Discipline Discipline { get; set; }
+        public virtual JournalCurriculum JournalCurriculum { get; set; }
+        public int JournalCurriculumId { get; set; }
         public virtual AppraisalFormReport AppraisalFormReport { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using StudentProject.Core.Entities;
 using StudentProject.EFData;
 using StudentProject.Services;
@@ -433,7 +434,9 @@ namespace StudentProject.UI
         private void DeleteStudent(object sender, EventArgs e)
         {
             var studentService = new StudentService(_unit, _unit);
-            studentService.RemoveStudent((Student)studentGV.CurrentRow.DataBoundItem);
+            var student = (Student) studentGV.CurrentRow.DataBoundItem;
+            student.Groups = null;
+            studentService.RemoveStudent(student);
             _unit.Commit();
             _unit = new UnitOfWork(_context);
             this.SearchStudent(13, _tBox_searchValue);
@@ -442,7 +445,9 @@ namespace StudentProject.UI
         private void DeleteGroup(object sender, EventArgs e)
         {
             var groupService = new GroupService(_unit, _unit);
-            groupService.RemoveGroup((Group)groupGV.CurrentRow.DataBoundItem);
+            var group = (Group) groupGV.CurrentRow.DataBoundItem;
+            group.Students = null;
+            groupService.RemoveGroup(group);
             _unit.Commit();
             _unit = new UnitOfWork(_context);
             this.SearchGroup(13, _tBox_searchValue);
@@ -653,12 +658,51 @@ namespace StudentProject.UI
                 var student = (Student)studentGV.CurrentRow.DataBoundItem;
                 var form = new Form4(1, student.Id, 1, this);
                 form.ShowDialog();
+                if (DeccisionIndex == 0)
+                {
+                    var form0 = new Form15(student.Id);
+                    form0.ShowDialog();
+                }
+                if (DeccisionIndex == 1)
+                {
+                    var form1 = new Form16(student.Id);
+                    form1.ShowDialog();
+                }
+                if (DeccisionIndex == 2)
+                {
+                    this.groupAGV.Visible = true;
+                    this.studentAGV.Visible = false;
+                    this.groupAGV.DataSource = student.Groups.ToList();
+                }
+                if (DeccisionIndex == 3)
+                {
+                    var form3 = new Form14(1, student.Id);
+                    form3.ShowDialog();
+
+                }
+                if (DeccisionIndex == 4)
+                {
+                    var form4 = new Form14(2, student.Id);
+                    form4.ShowDialog();
+                }
             }
             else
             {
                 var form = new Form4(2, 0, 1, this);
                 form.ShowDialog();
+                var studentService = new StudentService(_unit, _unit);
+                if (DeccisionIndex == 0)
+                {
+                    this.studentAGV.Visible = true;
+                    var allStudent = studentService.GetAllStudents();
+                    studentAGV.DataSource = allStudent.ToList();
+                }
+                if (DeccisionIndex == 1)
+                {
+
+                }
             }
+            DeccisionIndex = -1;
         }
 
         private void AdditionalForGroup(object sender, EventArgs e)
@@ -668,12 +712,34 @@ namespace StudentProject.UI
                 var group = (Group)groupGV.CurrentRow.DataBoundItem;
                 var form = new Form4(1, group.Id, 2, this);
                 form.ShowDialog();
+                if (DeccisionIndex == 0)
+                {
+                    this.studentAGV.Visible = true;
+                    this.groupAGV.Visible = false;
+                    this.studentAGV.DataSource = group.Students.ToList();
+                }
+                if (DeccisionIndex == 1)
+                {
+
+                }
             }
             else
             {
                 var form = new Form4(2, 0, 2, this);
                 form.ShowDialog();
+                var groupService = new GroupService(_unit, _unit);
+                if (DeccisionIndex == 0)
+                {
+                    this.groupAGV.Visible = true;
+                    var allGroup = groupService.GetAllGroups();
+                    groupAGV.DataSource = allGroup.ToList();
+                }
+                if (DeccisionIndex == 1)
+                {
+
+                }
             }
+            DeccisionIndex = -1;
         }
 
         private void AdditionalForSpeciality(object sender, EventArgs e)
@@ -685,11 +751,13 @@ namespace StudentProject.UI
                 form.ShowDialog();
                 if (DeccisionIndex == 0)
                 {
-                    var form1 = new Form11(1, speciality.Id);
+                    var form1 = new Form11(speciality);
                     form1.ShowDialog();
                 }
                 if (DeccisionIndex == 1)
                 {
+                    this.groupAGV.Visible = true;
+                    this.specialityAGV.Visible = false;
                     this.groupAGV.DataSource = speciality.Groups.ToList();
                 }
             }
@@ -697,9 +765,12 @@ namespace StudentProject.UI
             {
                 var form = new Form4(2, 0, 3, this);
                 form.ShowDialog();
+                var specialityService = new SpecialityService(_unit, _unit);
                 if (DeccisionIndex == 0)
                 {
-                    MessageBox.Show(@"dsgsdgs");
+                    this.specialityAGV.Visible = true;
+                    var allSpeciality = specialityService.GetAllSpeciality();
+                    specialityAGV.DataSource = allSpeciality.ToList();
                 }
                 if (DeccisionIndex == 1)
                 {
@@ -733,4 +804,3 @@ namespace StudentProject.UI
     }
 }
 
-//var student = (Student)studentGV.CurrentRow.DataBoundItem;

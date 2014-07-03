@@ -9,12 +9,12 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface IJournalProgressService : IService
     {
-        JournalProgress CreateJournalProgress();
+        JournalProgress CreateJournalProgress(Progress progress, JournalCurriculum journalCurriculum, AppraisalFormReport appraisalFormReport);
         void UpdateJournalProgress(JournalProgress journalProgress);
         void RemoveJournalProgress(JournalProgress journalProgress);
         JournalProgress GetJournalProgressById(int journalProgressId);
-        void SetDisciplineOfJournalProgress(Discipline discipline, int journalProgressId);
-        void SetAppraisalFormReportOfJournalProgress(AppraisalFormReport appraisalFormReport, int journalProgressId);
-        void SetProgressOfJournalProgress(Progress progress, int journalProgressId);
+        void SetAppraisalFormReportOfJournalProgress(AppraisalFormReport appraisalFormReport, JournalProgress journalProgress);
+        void SetProgressOfJournalProgress(Progress progress, JournalProgress journalProgress);
+        void SetJournalCurriculumOfJournalProgress(JournalCurriculum journalCurriculum, JournalProgress journalProgress);
     }
 }

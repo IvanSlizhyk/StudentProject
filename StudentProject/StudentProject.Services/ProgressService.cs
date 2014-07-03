@@ -18,24 +18,6 @@ namespace StudentProject.Services
         {
         }
 
-        public Progress CreateProgress(int term)
-        {
-            var progressRepository = RepositoryFactory.GetProgressRepository();
-            var progress = new Progress { Term = term };
-            progressRepository.Create(progress);
-
-            try
-            {
-                UnitOfWork.PreSave();
-            }
-            catch (RepositoryException ex)
-            {
-                throw new ProgressServiceException(ex);
-            }
-
-            return progress;
-        }
-
         public void UpdateProgress(Progress progress)
         {
             var progressRepository = RepositoryFactory.GetProgressRepository();
@@ -90,6 +72,21 @@ namespace StudentProject.Services
         {
             var progress = GetProgressById(progressId);
             return progress.JournalProgresses;
+        }
+
+        public Progress GetProgressByGroupAndStudentAndTermNumber(Group group, Student student, int termNumber)
+        {
+            var progressRepository = RepositoryFactory.GetProgressRepository();
+
+            try
+            {
+                var progress = progressRepository.FindEntity(e => e.GroupId == group.Id && e.Term == termNumber && e.StudentId == student.Id);
+                return progress;
+            }
+            catch (RepositoryException ex)
+            {
+                throw new CurriculumServiceException(ex);
+            }
         }
     }
 }

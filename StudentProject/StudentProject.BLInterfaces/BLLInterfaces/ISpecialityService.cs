@@ -16,6 +16,8 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void SetFormEducationOfSpeciality(FormEducation formEducation, Speciality speciality);
         HashSet<Group> GetGroupsOfSpeciality(int specialityId);
         HashSet<Curriculum> GetCurriculaOfSpeciality(int specialityId);
-
+        IQueryable<Speciality> GetSpecialitiesByName(string name);
+        IQueryable<Speciality> GetSpecialitiesByFormEducation(int formEducationId);
+        IQueryable<Speciality> GetAllSpeciality();
     }
 }

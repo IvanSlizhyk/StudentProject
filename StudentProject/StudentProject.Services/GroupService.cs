@@ -133,5 +133,20 @@ namespace StudentProject.Services
             group.Speciality = speciality;
             group.SpecialtyId = speciality.Id;
         }
+
+        public IQueryable<Group> GetAllGroups()
+        {
+            var groupRepository = RepositoryFactory.GetGroupRepository();
+
+            try
+            {
+                var group = groupRepository.All();
+                return group;
+            }
+            catch (RepositoryException ex)
+            {
+                throw new GroupServiceException(ex);
+            }
+        }
     }
 }

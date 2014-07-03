@@ -18,10 +18,13 @@ namespace StudentProject.Services
         {
         }
 
-        public JournalProgress CreateJournalProgress()
+        public JournalProgress CreateJournalProgress(Progress progress, JournalCurriculum journalCurriculum, AppraisalFormReport appraisalFormReport)
         {
             var journalProgressRepository = RepositoryFactory.GetJournalProgressRepository();
             var journalProgress = new JournalProgress { };
+            SetAppraisalFormReportOfJournalProgress(appraisalFormReport, journalProgress);
+            SetJournalCurriculumOfJournalProgress(journalCurriculum, journalProgress);
+            SetProgressOfJournalProgress(progress, journalProgress);
             journalProgressRepository.Create(journalProgress);
 
             try
@@ -79,23 +82,21 @@ namespace StudentProject.Services
             }
         }
 
-        public void SetDisciplineOfJournalProgress(Discipline discipline, int journalProgressId)
+        public void SetAppraisalFormReportOfJournalProgress(AppraisalFormReport appraisalFormReport, JournalProgress journalProgress)
         {
-            var journalProgress = GetJournalProgressById(journalProgressId);
-            journalProgress.Discipline = discipline;
-        }
-
-        public void SetAppraisalFormReportOfJournalProgress(AppraisalFormReport appraisalFormReport, int journalProgressId)
-        {
-            var journalProgress = GetJournalProgressById(journalProgressId);
             journalProgress.AppraisalFormReport = appraisalFormReport;
         }
 
-        public void SetProgressOfJournalProgress(Progress progress, int journalProgressId)
+        public void SetProgressOfJournalProgress(Progress progress, JournalProgress journalProgress)
         {
-            var journalProgress = GetJournalProgressById(journalProgressId);
             journalProgress.Progress = progress;
             journalProgress.ProgressId = progress.Id;
+        }
+
+        public void SetJournalCurriculumOfJournalProgress(JournalCurriculum journalCurriculum, JournalProgress journalProgress)
+        {
+            journalProgress.JournalCurriculum = journalCurriculum;
+            journalProgress.JournalCurriculumId = journalCurriculum.Id;
         }
     }
 }

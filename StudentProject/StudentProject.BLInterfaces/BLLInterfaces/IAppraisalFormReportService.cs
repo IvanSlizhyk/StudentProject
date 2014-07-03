@@ -13,5 +13,6 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateAppraisalFormReport(AppraisalFormReport appraisalFormReport);
         void RemoveAppraisalFormReport(AppraisalFormReport appraisalFormReport);
         AppraisalFormReport GetAppraisalFormReportById(int appraisalFormReportId);
+        AppraisalFormReport GetAppraisalFormReportByValue(string value);
     }
 }

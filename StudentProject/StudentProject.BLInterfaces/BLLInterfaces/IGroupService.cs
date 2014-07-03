@@ -18,5 +18,6 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void RemoveStudentToGroup(Student student, int groupId);
         HashSet<Student> GetStudentsOfGroup(int groupNumber);
         void SetSpecialityOfGroup(Speciality speciality, Group group);
+        IQueryable<Group> GetAllGroups();
     }
 }

@@ -13,5 +13,7 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateFormEducation(FormEducation formEducation);
         void RemoveFormEducation(FormEducation formEducation);
         FormEducation GetFormEducationById(int formEducationId);
+        FormEducation GetFormEducationByName(string name);
+        IQueryable<FormEducation> GetAllFormEducation();
     }
 }

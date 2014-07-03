@@ -13,5 +13,7 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateDiscipline(Discipline discipline);
         void RemoveDiscipline(Discipline discipline);
         Discipline GetDisciplineById(int disciplineId);
+        Discipline GetDisciplineByName(string name);
+        IQueryable<Discipline> GetAllDiscipline();
     }
 }

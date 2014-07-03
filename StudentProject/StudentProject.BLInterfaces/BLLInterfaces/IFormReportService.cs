@@ -13,5 +13,7 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         void UpdateFormReport(FormReport formReport);
         void RemoveFormReport(FormReport formReport);
         FormReport GetFormReportById(int formReportId);
+        FormReport GetFormReportByName(string name);
+        IQueryable<FormReport> GetAllFormReport();
     }
 }

@@ -38,16 +38,57 @@ namespace StudentProject.UI
 
         private void PaddEntityLists()
         {
-            AdditionalForStudentList = new List<string> { "Просмотреть успеваемоть студента", "Просмотреть группы студента" };
-            AdditionalForGroupList = new List<string> { "Просмотреть студентов группы" };
-            AdditionalForSpecialityList = new List<string> { "Изменить учебный план", "Просмотреть группы специальности" };
+            this.SetValueGroupList();
+            this.SetValueSpecialityList();
+            this.SetValueStudentList();
+        }
+
+        private void SetValueStudentList()
+        {
+            AdditionalForStudentList = new List<string>();
+            AdditionalForStudentList.Add("Просмотреть успеваемоть студента");
+            AdditionalForStudentList.Add("Изменить успеваемоть студента");
+            AdditionalForStudentList.Add("Просмотреть группы студента");
+            AdditionalForStudentList.Add("Добавить студента в группу");
+            AdditionalForStudentList.Add("Удалить студента из группы");
+        }
+
+        private void SetValueGroupList()
+        {
+            AdditionalForGroupList = new List<string>();
+            AdditionalForGroupList.Add("Просмотреть студентов группы");
+        }
+
+        private void SetValueSpecialityList()
+        {
+            AdditionalForSpecialityList = new List<string>();
+            AdditionalForSpecialityList.Add("Изменить учебный план специальности");
+            AdditionalForSpecialityList.Add("Просмотреть группы специальности");
         }
 
         private void PaddAllEntityLists()
         {
-            AdditionalForStudentList = new List<string> { "Просмотреть всех студентов" };
-            AdditionalForGroupList = new List<string> { "Просмотреть все группы" };
-            AdditionalForSpecialityList = new List<string> { "Просмотреть все специальности" };
+            this.SetValueAllGroupList();
+            this.SetValueAllSpecialityList();
+            this.SetValueAllStudentList();
+        }
+
+        private void SetValueAllStudentList()
+        {
+            AdditionalForStudentList = new List<string>();
+            AdditionalForStudentList.Add("Просмотреть всех студентов");
+        }
+
+        private void SetValueAllGroupList()
+        {
+            AdditionalForGroupList = new List<string>();
+            AdditionalForGroupList.Add("Просмотреть все группы");
+        }
+
+        private void SetValueAllSpecialityList()
+        {
+            AdditionalForSpecialityList = new List<string>();
+            AdditionalForSpecialityList.Add("Просмотреть все специальности");
         }
 
         private void SetEntityListToLBox()
@@ -64,40 +105,6 @@ namespace StudentProject.UI
             {
                 additionalLBox.DataSource = AdditionalForSpecialityList;
             }
-        }
-
-        private EventHandler GetEntityToDecisionTask(int number)
-        {
-            if (number == 1)
-            {
-                if (_index == 1) return DecisionStudentTask;
-                if (_index == 2) return DecisionGroupTask;
-                if (_index == 3) return DecisionSpecialityTask;
-            }
-            if (number == 2)
-            {
-                if (_index == 1) return DecisionAllStudentTask;
-                if (_index == 2) return DecisionAllGroupTask;
-                if (_index == 3) return DecisionAllSpecialityTask;
-            }
-            return ReturnDecision;
-        }
-
-        private void SetEntityToDecisionTask(int number)
-        {
-            this.ClearAdditionalLBox();
-            EventHandler even = GetEntityToDecisionTask(number);
-            additionalLBox.DoubleClick += even;
-        }
-
-        private void ClearAdditionalLBox()
-        {
-            additionalLBox.DoubleClick -= DecisionStudentTask;
-            additionalLBox.DoubleClick -= DecisionGroupTask;
-            additionalLBox.DoubleClick -= DecisionSpecialityTask;
-            additionalLBox.DoubleClick -= DecisionAllStudentTask;
-            additionalLBox.DoubleClick -= DecisionAllGroupTask;
-            additionalLBox.DoubleClick -= DecisionAllSpecialityTask;
         }
 
         private void Form4_FormClosing(object sender, FormClosingEventArgs e)
@@ -118,51 +125,14 @@ namespace StudentProject.UI
 
             }
             this.SetEntityListToLBox();
-            this.SetEntityToDecisionTask(number);
-        }
-
-        private void DecisionSpecialityTask(object sender, EventArgs e)
-        {
-            if (additionalLBox.SelectedIndex == 0)
-            {
-                _form2.DeccisionIndex = 0;
-            }
-            if (additionalLBox.SelectedIndex == 1)
-            {
-                _form2.DeccisionIndex = 1;
-            }
-            _context.Dispose();
-            this.Close();
-        }
-
-        private void DecisionStudentTask(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DecisionGroupTask(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DecisionAllStudentTask(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DecisionAllGroupTask(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DecisionAllSpecialityTask(object sender, EventArgs e)
-        {
-
         }
 
         private void ReturnDecision(object sender, EventArgs e)
         {
-            /**/
+            _form2.DeccisionIndex = additionalLBox.SelectedIndex;
+
+            _context.Dispose();
+            this.Close();
         }
 
 

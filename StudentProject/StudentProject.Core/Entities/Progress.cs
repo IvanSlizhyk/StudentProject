@@ -10,6 +10,8 @@ namespace StudentProject.Core.Entities
     {
         public int StudentId { get; set; }
         public virtual Student Student { get; set; }
+        public virtual Group Group { get; set; }
+        public int GroupId { get; set; }
         public virtual HashSet<JournalProgress> JournalProgresses { get; set; }
         public int Term { get; set; }
     }

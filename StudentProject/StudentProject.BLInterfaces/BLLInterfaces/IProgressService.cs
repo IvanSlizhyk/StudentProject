@@ -9,7 +9,6 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
 {
     public interface IProgressService : IService
     {
-        Progress CreateProgress(int term);
         void UpdateProgress(Progress progress);
         void RemoveProgress(Progress progress);
         Progress GetProgressById(int progressId);

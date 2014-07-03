@@ -32,24 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmBox_Term = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_update = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.add_OnLBox = new System.Windows.Forms.ListBox();
+            this.addLBox = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.journalCurriculumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.journalCurriculumBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::StudentProject.UI.Resources.Curriculum;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
@@ -60,14 +58,12 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(176)))), ((int)(((byte)(240)))));
             this.label1.Name = "label1";
             // 
-            // comboBox1
+            // cmBox_Term
             // 
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.ValueMember = "Id";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmBox_Term.FormattingEnabled = true;
+            resources.ApplyResources(this.cmBox_Term, "cmBox_Term");
+            this.cmBox_Term.Name = "cmBox_Term";
+            this.cmBox_Term.SelectedIndexChanged += new System.EventHandler(this.cmBox_Term_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -76,21 +72,31 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Name = "label4";
             // 
-            // btn_update
+            // disciplineBindingSource
             // 
-            resources.ApplyResources(this.btn_update, "btn_update");
-            this.btn_update.Name = "btn_update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            this.disciplineBindingSource.DataSource = typeof(StudentProject.Core.Entities.Discipline);
             // 
-            // comboBox2
+            // add_OnLBox
             // 
-            this.comboBox2.DataSource = this.disciplineBindingSource;
-            this.comboBox2.DisplayMember = "Name";
-            this.comboBox2.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox2, "comboBox2");
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.ValueMember = "Id";
+            this.add_OnLBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.add_OnLBox.DataSource = this.disciplineBindingSource;
+            this.add_OnLBox.DisplayMember = "Name";
+            resources.ApplyResources(this.add_OnLBox, "add_OnLBox");
+            this.add_OnLBox.FormattingEnabled = true;
+            this.add_OnLBox.Name = "add_OnLBox";
+            this.add_OnLBox.ValueMember = "Id";
+            this.add_OnLBox.DoubleClick += new System.EventHandler(this.add_OnLBox_DoubleClick);
+            // 
+            // addLBox
+            // 
+            this.addLBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.addLBox.DataSource = this.disciplineBindingSource;
+            this.addLBox.DisplayMember = "Name";
+            resources.ApplyResources(this.addLBox, "addLBox");
+            this.addLBox.FormattingEnabled = true;
+            this.addLBox.Name = "addLBox";
+            this.addLBox.ValueMember = "Id";
+            this.addLBox.Click += new System.EventHandler(this.addLBox_Click);
             // 
             // label2
             // 
@@ -99,14 +105,6 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label2.Name = "label2";
             // 
-            // comboBox3
-            // 
-            this.comboBox3.DisplayMember = "Name";
-            this.comboBox3.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox3, "comboBox3");
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.ValueMember = "Id";
-            // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
@@ -114,50 +112,20 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Name = "label3";
             // 
-            // label5
+            // journalCurriculumBindingSource
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Name = "label5";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
-            // 
-            // btn_add
-            // 
-            resources.ApplyResources(this.btn_add, "btn_add");
-            this.btn_add.Name = "btn_add";
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // btn_delete
-            // 
-            resources.ApplyResources(this.btn_delete, "btn_delete");
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.DataSource = typeof(StudentProject.Core.Entities.Discipline);
+            this.journalCurriculumBindingSource.DataSource = typeof(StudentProject.Core.Entities.JournalCurriculum);
             // 
             // Form11
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_add);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.addLBox);
+            this.Controls.Add(this.add_OnLBox);
+            this.Controls.Add(this.cmBox_Term);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -165,6 +133,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form11_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.journalCurriculumBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,17 +143,13 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmBox_Term;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_update;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button btn_add;
-        private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.BindingSource disciplineBindingSource;
+        private System.Windows.Forms.ListBox add_OnLBox;
+        private System.Windows.Forms.ListBox addLBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource journalCurriculumBindingSource;
     }
 }

@@ -25,7 +25,7 @@ namespace StudentProject.UI
         private void btn_enter_Click(object sender, EventArgs e)
         {
             var form = new Form2();
-            form.Show();
+            form.ShowDialog();
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace StudentProject.UI
         private void btn_about_Click(object sender, EventArgs e)
         {
             var form = new Form3();
-            form.Show();
+            form.ShowDialog();
         }
 
 

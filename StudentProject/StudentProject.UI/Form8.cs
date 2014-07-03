@@ -105,6 +105,5 @@ namespace StudentProject.UI
             _context.Dispose();
             this.Close();
         }
-
     }
 }

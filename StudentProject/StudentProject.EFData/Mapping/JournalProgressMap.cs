@@ -13,7 +13,7 @@ namespace StudentProject.EFData.Mapping
         public JournalProgressMap()
         {
             HasKey(e => e.Id);
-            HasRequired(e => e.Progress).WithMany(e => e.JournalProgresses).HasForeignKey(e => e.ProgressId);
+            HasRequired(e => e.Progress).WithMany(e => e.JournalProgresses).HasForeignKey(e => e.ProgressId).WillCascadeOnDelete(false);
         }
     }
 }

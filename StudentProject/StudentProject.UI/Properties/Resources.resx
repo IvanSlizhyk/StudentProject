@@ -118,37 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="About1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\About1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WlrluXzw3rA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WlrluXzw3rA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Additional" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Additional.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Student" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Work" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Work.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Work1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Work5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ConnectionString" xml:space="preserve">
+    <value />
   </data>
-  <data name="Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Curriculum1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Curriculum1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddToGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddToGroup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Work2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Work6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ConnectionString" xml:space="preserve">
-    <value />
+  <data name="Button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChangeCurriculum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ChangeCurriculum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Work1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Work5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="About" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\About.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Student" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Student.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Additional" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Additional.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WlrluXzw3rA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WlrluXzw3rA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Choice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Choice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ViewProgress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ViewProgress.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

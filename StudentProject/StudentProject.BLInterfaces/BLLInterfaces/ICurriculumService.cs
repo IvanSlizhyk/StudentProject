@@ -13,6 +13,7 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         Curriculum GetCurriculumById(int curriculumId);
         Speciality GetSpecialityOfCurruculum(int currliculumId);
         HashSet<JournalCurriculum> GetJournalCurriculaOfCurriculum(int curriculumId);
-
+        void AddJournalCurriculumToCurriculum(JournalCurriculum journalCurriculum, Curriculum curriculum);
+        Curriculum GetCurriculumBySpecialityAndTermNumber(Speciality speciality, int termNumber);
     }
 }

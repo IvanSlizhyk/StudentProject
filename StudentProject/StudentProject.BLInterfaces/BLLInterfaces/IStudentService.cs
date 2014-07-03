@@ -15,5 +15,10 @@ namespace StudentProject.BLInterfaces.BLLInterfaces
         Student GetStudentById(int studentId);
         HashSet<Group> GetGroupsOfStudent(int studentId);
         HashSet<Progress> GetProgressesOfStudent(int studentId);
+        void AddGroupToStudent(Group group, int studentId);
+        void RemoveGroupToStudent(Group group, int studentId);
+        IQueryable<Student> GetStudentsBySurname(string surname);
+        IQueryable<Student> GetAllStudents();
+        IQueryable<Student> GetStudentsByEmail(string email);
     }
 }

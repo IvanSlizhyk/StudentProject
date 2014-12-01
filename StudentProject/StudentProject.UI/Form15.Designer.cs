@@ -45,6 +45,7 @@
             this.journalCurriculumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.journalProgressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentProgressViewModelBindingSource)).BeginInit();
@@ -202,11 +203,22 @@
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
             // 
+            // btn_print
+            // 
+            this.btn_print.Location = new System.Drawing.Point(311, 663);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(75, 23);
+            this.btn_print.TabIndex = 53;
+            this.btn_print.Text = "Print";
+            this.btn_print.UseVisualStyleBackColor = true;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
+            // 
             // Form15
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 691);
+            this.Controls.Add(this.btn_print);
             this.Controls.Add(this.ProgressGV);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmBox_Term);
@@ -250,5 +262,6 @@
         private System.Windows.Forms.BindingSource studentProgressViewModelBindingSource;
         private System.Windows.Forms.BindingSource groupBindingSource;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_print;
     }
 }

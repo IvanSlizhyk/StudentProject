@@ -43,9 +43,9 @@ namespace StudentProject.UI
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentGV = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Groups = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.groupGV = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +90,7 @@ namespace StudentProject.UI
             this.btn_group = new System.Windows.Forms.Button();
             this.btn_student = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentAGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentGV)).BeginInit();
@@ -109,6 +110,7 @@ namespace StudentProject.UI
             ((System.ComponentModel.ISupportInitialize)(this.appraisalFormReportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllEntityGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tBox_search
@@ -210,9 +212,9 @@ namespace StudentProject.UI
             this.studentGV.AutoGenerateColumns = false;
             this.studentGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.surnameDataGridViewTextBoxColumn});
+            this.surnameDataGridViewTextBoxColumn,
+            this.Groups});
             this.studentGV.DataSource = this.studentBindingSource;
             this.studentGV.Location = new System.Drawing.Point(914, 141);
             this.studentGV.Name = "studentGV";
@@ -220,14 +222,6 @@ namespace StudentProject.UI
             this.studentGV.Size = new System.Drawing.Size(269, 186);
             this.studentGV.TabIndex = 17;
             this.studentGV.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 50;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -243,6 +237,16 @@ namespace StudentProject.UI
             this.surnameDataGridViewTextBoxColumn.HeaderText = "Surname";
             this.surnameDataGridViewTextBoxColumn.Name = "surnameDataGridViewTextBoxColumn";
             this.surnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Groups
+            // 
+            this.Groups.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Groups.HeaderText = "Groups";
+            this.Groups.Name = "Groups";
+            this.Groups.ReadOnly = true;
+            this.Groups.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Groups.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Groups.Width = 45;
             // 
             // groupGV
             // 
@@ -295,7 +299,7 @@ namespace StudentProject.UI
             this.groupAGV.Location = new System.Drawing.Point(339, 406);
             this.groupAGV.Name = "groupAGV";
             this.groupAGV.ReadOnly = true;
-            this.groupAGV.Size = new System.Drawing.Size(859, 246);
+            this.groupAGV.Size = new System.Drawing.Size(824, 246);
             this.groupAGV.TabIndex = 20;
             this.groupAGV.Visible = false;
             // 
@@ -375,7 +379,7 @@ namespace StudentProject.UI
             this.specialityAGV.Location = new System.Drawing.Point(339, 406);
             this.specialityAGV.Name = "specialityAGV";
             this.specialityAGV.ReadOnly = true;
-            this.specialityAGV.Size = new System.Drawing.Size(859, 246);
+            this.specialityAGV.Size = new System.Drawing.Size(804, 246);
             this.specialityAGV.TabIndex = 22;
             this.specialityAGV.Visible = false;
             // 
@@ -419,7 +423,7 @@ namespace StudentProject.UI
             this.screenAGV.Location = new System.Drawing.Point(339, 406);
             this.screenAGV.Name = "screenAGV";
             this.screenAGV.ReadOnly = true;
-            this.screenAGV.Size = new System.Drawing.Size(859, 246);
+            this.screenAGV.Size = new System.Drawing.Size(778, 246);
             this.screenAGV.TabIndex = 23;
             // 
             // screenGV
@@ -552,7 +556,7 @@ namespace StudentProject.UI
             this.AllEntityGV.Location = new System.Drawing.Point(339, 406);
             this.AllEntityGV.Name = "AllEntityGV";
             this.AllEntityGV.ReadOnly = true;
-            this.AllEntityGV.Size = new System.Drawing.Size(859, 246);
+            this.AllEntityGV.Size = new System.Drawing.Size(787, 246);
             this.AllEntityGV.TabIndex = 29;
             // 
             // btn_additional
@@ -691,6 +695,10 @@ namespace StudentProject.UI
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // progressBindingSource
+            // 
+            this.progressBindingSource.DataSource = typeof(StudentProject.Core.Entities.Progress);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,6 +755,7 @@ namespace StudentProject.UI
             ((System.ComponentModel.ISupportInitialize)(this.appraisalFormReportBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AllEntityGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -772,9 +781,6 @@ namespace StudentProject.UI
         private System.Windows.Forms.DataGridView studentGV;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.BindingSource studentBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource groupBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn1;
@@ -812,5 +818,9 @@ namespace StudentProject.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupNumberDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn formationYearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource progressBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Groups;
     }
 }

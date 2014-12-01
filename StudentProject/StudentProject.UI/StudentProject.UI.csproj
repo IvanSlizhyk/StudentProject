@@ -40,6 +40,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -229,6 +232,7 @@
     <None Include="Properties\DataSources\StudentProject.Core.Entities.Group.datasource" />
     <None Include="Properties\DataSources\StudentProject.Core.Entities.JournalCurriculum.datasource" />
     <None Include="Properties\DataSources\StudentProject.Core.Entities.JournalProgress.datasource" />
+    <None Include="Properties\DataSources\StudentProject.Core.Entities.Progress.datasource" />
     <None Include="Properties\DataSources\StudentProject.Core.Entities.Speciality.datasource" />
     <None Include="Properties\DataSources\StudentProject.Core.Entities.Student.datasource" />
     <None Include="Properties\Settings.settings">

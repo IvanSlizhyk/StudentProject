@@ -261,6 +261,10 @@ namespace StudentProject.UI
                 var studentService = new StudentService(_unit, _unit);
                 var student = studentService.GetStudentById(Convert.ToInt32(_tBox_searchValue));
                 studentGV.DataSource = new List<Student>() { student };
+                var column = studentGV.Columns[2] as DataGridViewComboBoxColumn;
+                column.DisplayMember = "groupNumber";
+                column.ValueMember = "groupNumber";
+                column.DataSource = student.Groups.ToList();
             }
             if (code == 13 && cmBox_search.SelectedIndex == 1 && value != "")
             {
@@ -717,6 +721,7 @@ namespace StudentProject.UI
                     this.studentAGV.Visible = true;
                     this.groupAGV.Visible = false;
                     this.studentAGV.DataSource = group.Students.ToList();
+                    studentAGV.CellDoubleClick += ChangeProgress;
                 }
                 if (DeccisionIndex == 1)
                 {
@@ -785,6 +790,13 @@ namespace StudentProject.UI
             /*No question...*/
         }
 
+        private void ChangeProgress(object sender, DataGridViewCellEventArgs e)
+        {
+            var student = (Student)studentAGV.CurrentRow.DataBoundItem;
+            var form1 = new Form16(student.Id);
+            form1.ShowDialog();
+        }
+
         private void SetAdditionalButtonParametr(EventHandler even)
         {
             this.ClearAdditionalBtn();
@@ -800,6 +812,7 @@ namespace StudentProject.UI
             btn_additional.Click -= ReturnAdditional;
             btn_additional.Click -= ReturnAdditional;
         }
+
 
     }
 }

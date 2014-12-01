@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using StudentProject.Core.Entities;
 using StudentProject.EFData;
 using StudentProject.Services;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Color = iTextSharp.text.Color;
+using Font = iTextSharp.text.Font;
+
 
 namespace StudentProject.UI
 {
@@ -19,7 +24,7 @@ namespace StudentProject.UI
         private UnitOfWork _unit;
         public List<string> TermList { get; set; }
         public Student Student { get; set; }
-        
+
         public Form15(int studentId)
         {
             InitializeComponent();
@@ -110,6 +115,43 @@ namespace StudentProject.UI
         private void Form15_FormClosing(object sender, FormClosingEventArgs e)
         {
             _context.Dispose();
+        }
+
+        private void btn_print_Click(object sender, EventArgs e)
+        {
+            var document = new Document();
+            var writer = PdfWriter.GetInstance(document, new System.IO.FileStream("St_s.pdf", System.IO.FileMode.Create));
+            document.Open();
+            var baseFont = BaseFont.CreateFont(@"C:\WINDOWS\Fonts\times.ttf", "CP1251", BaseFont.EMBEDDED);
+            var textFont = new Font(baseFont, 12, 2);
+            textFont.Color = Color.BLACK;
+            document.Add(new Paragraph("Успеваемость: \nСтудент -  " + Student.Surname + " " + Student.Name + " " +
+                                       Student.Patronymic + "\nГруппа -  " + ((Group)cmBox_Group.SelectedItem).GroupNumber + "\nСеместр -  " +
+                                       cmBox_Term.SelectedItem + "\n\n", textFont));
+            var table = new PdfPTable(ProgressGV.ColumnCount);
+            table.HorizontalAlignment = Element.ALIGN_CENTER;
+            var cell = new PdfPCell(new Phrase("cell", textFont));
+            cell.FixedHeight = 20.0F;
+            cell.BorderColor = Color.BLACK;
+            cell.HorizontalAlignment = Element.ALIGN_LEFT;
+            cell.VerticalAlignment = Element.ALIGN_MIDDLE;
+            cell.Phrase = new Phrase("Дисциплина", textFont);
+            table.AddCell(cell);
+            cell.Phrase = new Phrase("Форма отчётности", textFont);
+            table.AddCell(cell);
+            cell.Phrase = new Phrase("Отметка формы отчётности", textFont);
+            table.AddCell(cell);
+            for (int i = 0; i < ProgressGV.RowCount; i++)
+                for (int j = 0; j < ProgressGV.ColumnCount; j++)
+                {
+                    cell.Phrase = new Phrase(ProgressGV.Rows[i].Cells[j].Value.ToString(), textFont);
+                    table.AddCell(cell);
+                }
+            document.Add(table);
+            document.Close();
+            writer.Close();
+            //System.Diagnostics.Process.Start("Opera.exe", System.IO.Directory.GetCurrentDirectory() + @"\St_s.pdf");
+            System.Diagnostics.Process.Start("St_s.pdf");
         }
     }
 }
